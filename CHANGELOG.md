@@ -1,5 +1,16 @@
 ## Changelog
 
+## [0.1.2](https://github.com/mezmo/aura/compare/v0.1.1...v0.1.2) (2026-07-27)
+
+
+### Bug Fixes
+
+* **agent**: apply turn-limit nudges to scratchpad read tool output [c9fd16e](https://github.com/mezmo/aura/commit/c9fd16ef0eebe23c17d227c2aa2d1bd36c9a405c) - Mike Shearer [#452](https://github.com/mezmo/aura/issues/452)
+
+### Documentation
+
+* **refactor**: moving docs to docs.mezmo.com [d35d699](https://github.com/mezmo/aura/commit/d35d699699503623f914cd1808eba9a1193d4f2a) - Gregory Janco [#428](https://github.com/mezmo/aura/issues/428)
+
 ## [0.1.1](https://github.com/mezmo/aura/compare/v0.1.0...v0.1.1) (2026-07-24)
 
 
