@@ -81,7 +81,7 @@ turn_depth_bonus = 6
 # [mcp.servers.my-alerting]
 # transport = "http_streamable"
 # url = "https://mcp.pagerduty.com/mcp"
-# headers = { Authorization = "Token token={{ env.PAGERDUTY_API_KEY }}" }
+# headers = { Authorization = "Token token={{ env.PAGERDUTY_API_TOKEN }}" }
 # description = "Alerting system for incident details and oncall schedules"
 #
 # [mcp.servers.my-metrics]
