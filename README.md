@@ -1,6 +1,7 @@
 <div align="center">
   <h1>AURA</h1>
-  <p><strong>Build and run reliable AI agents anywhere.</strong></p>
+  <p><strong>AURA is a production-grade SRE agent platform you can deploy in minutes.</strong></p>
+  <img src="assets/aura-demo.gif" alt="AURA investigating an incident from the terminal" width="720">
   <p>
     <a href="#quick-start"><strong>Quick Start</strong></a> ·
     <a href="#integrations"><strong>Integrations</strong></a> ·
@@ -13,7 +14,7 @@
   <a href="https://modelcontextprotocol.io"><img src="https://img.shields.io/badge/MCP-compatible-green" alt="Model Context Protocol compatible"></a>
 </div>
 
-AURA is a self-hosted runtime for turning the LLMs you already use into agents that can safely work with real systems. Define one agent or an orchestrated agent swarm in readable TOML, connect tools through MCP, run locally as a single binary, or serve an OpenAI-compatible API.
+AURA handles the guardrails, APIs, state management, streaming, and failure handling required to put AI to work safely on production infrastructure. Connect your stack through guided setup, and AURA's preconfigured team of agents starts investigating incidents using the models you already rely on. From there, customize existing agents or add new ones to fit your infrastructure and SRE workflows.
 
 ## Quick Start
 
