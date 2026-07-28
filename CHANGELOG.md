@@ -1,5 +1,24 @@
 ## Changelog
 
+## [0.1.3](https://github.com/mezmo/aura/compare/v0.1.2...v0.1.3) (2026-07-28)
+
+
+### Chores
+
+* **quickstart**: sync docker quickstart team with aura init [5fc5d60](https://github.com/mezmo/aura/commit/5fc5d605acbdd26f977e123662bd0f5a78a6a7d4) - Chip Johnson [#analyst](https://github.com/mezmo/aura/issues/analyst)
+
+### Documentation
+
+* **readme**: highlight production sre workflows [666ac6b](https://github.com/mezmo/aura/commit/666ac6b322c035bd5f1f11958a9ceaadef953703) - Mike Shearer
+
+### Features
+
+* **cli**: point empty-mcp hint at /mcp add command [2835ad5](https://github.com/mezmo/aura/commit/2835ad5f9a1cc138e94299fb1a0459415ce51b62) - Chip Johnson* **cli**: recommend latest chatgpt and opus models in init [72253da](https://github.com/mezmo/aura/commit/72253daa8f4de3f23f059ce27b7548e7fc8e6bad) - Chip Johnson
+
+### Style
+
+* collapse single-line match arm in startup cta [403ce44](https://github.com/mezmo/aura/commit/403ce4408d864510d4c8c50dbf39060c7f8fda71) - Chip Johnson
+
 ## [0.1.2](https://github.com/mezmo/aura/compare/v0.1.1...v0.1.2) (2026-07-27)
 
 
