@@ -6,6 +6,7 @@
     <a href="#quick-start"><strong>Quick Start</strong></a> ·
     <a href="#integrations"><strong>Integrations</strong></a> ·
     <a href="http://docs.mezmo.com/aura"><strong>Documentation</strong></a> ·
+    <a href="https://github.com/mezmo/aura/issues/views/4715"><strong>Roadmap</strong></a> ·
     <a href="#explore-aura"><strong>Explore</strong></a> ·
     <a href="https://mezmo.com/r/slack-aura"><strong>Community</strong></a>
   </p>
