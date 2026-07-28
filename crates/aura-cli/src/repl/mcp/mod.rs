@@ -47,7 +47,7 @@ fn format_server_list(agent: Option<&AgentInfo>) -> String {
     };
     if servers.is_empty() {
         return format!(
-            "No MCP servers configured for {}.\nSet up an MCP server to connect AURA to your tools.",
+            "No MCP servers configured for {}.\nRun /mcp add to connect AURA to your tools.",
             agent.id
         );
     }

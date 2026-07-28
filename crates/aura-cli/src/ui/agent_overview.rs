@@ -105,7 +105,7 @@ fn worker_block_lines(workers: &[WorkerOverview], width: usize) -> Vec<String> {
 fn startup_cta_lines(agent: &AgentInfo, width: usize) -> Vec<String> {
     let text = match agent.mcp_servers.as_ref() {
         Some(servers) if servers.is_empty() => {
-            "Set up an MCP server to connect AURA to your tools."
+            "Run /mcp add to connect AURA to your tools."
         }
         _ => "What should we work on?",
     };
@@ -267,7 +267,7 @@ mod tests {
         let lines = plain(&startup_cta_lines(&agent, 80));
         assert_eq!(
             lines.join(" "),
-            "Set up an MCP server to connect AURA to your tools."
+            "Run /mcp add to connect AURA to your tools."
         );
     }
 
