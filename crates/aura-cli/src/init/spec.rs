@@ -493,7 +493,7 @@ mod tests {
         a.offline = false;
         let only_openai = |var: &str| var == "OPENAI_API_KEY";
         let detected = |var: &str| (var == "OPENAI_API_KEY").then(|| "sk-detected".to_string());
-        let lister = FixedLister(vec!["gpt-5.4", "gpt-5.5", "text-embedding-3-small"]);
+        let lister = FixedLister(vec!["gpt-5.5", "gpt-5.6-terra", "text-embedding-3-small"]);
         // provider(enter) -> accept key(enter=yes) -> model(enter=suggested)
         let spec = resolve_spec(
             &a,
@@ -504,7 +504,7 @@ mod tests {
         )
         .unwrap();
         assert_eq!(spec.provider, Provider::OpenAI);
-        assert_eq!(spec.model, "gpt-5.5");
+        assert_eq!(spec.model, "gpt-5.6-terra");
         assert_eq!(
             spec.api_key,
             Some(ApiKeySource::EnvVar("OPENAI_API_KEY".to_string()))
