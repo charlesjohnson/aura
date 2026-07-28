@@ -1,5 +1,16 @@
 ## Changelog
 
+## [0.1.5](https://github.com/mezmo/aura/compare/v0.1.4...v0.1.5) (2026-07-28)
+
+
+### Bug Fixes
+
+* **bedrock**: force profile credentials for vector store aws clients [a44128f](https://github.com/mezmo/aura/commit/a44128f38ff93fedc35d3a456b2b159c0431bc65) - Mike Shearer [#470](https://github.com/mezmo/aura/issues/470)
+
+### Documentation
+
+* add roadmap link [d3dfed9](https://github.com/mezmo/aura/commit/d3dfed94ae2c9ff58620cb9e8db4d64980e93674) - Mike Shearer
+
 ## [0.1.4](https://github.com/mezmo/aura/compare/v0.1.3...v0.1.4) (2026-07-28)
 
 
