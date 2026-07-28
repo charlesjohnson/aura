@@ -104,9 +104,7 @@ fn worker_block_lines(workers: &[WorkerOverview], width: usize) -> Vec<String> {
 /// back to the generic prompt.
 fn startup_cta_lines(agent: &AgentInfo, width: usize) -> Vec<String> {
     let text = match agent.mcp_servers.as_ref() {
-        Some(servers) if servers.is_empty() => {
-            "Run /mcp add to connect AURA to your tools."
-        }
+        Some(servers) if servers.is_empty() => "Run /mcp add to connect AURA to your tools.",
         _ => "What should we work on?",
     };
     wrap_words(text, width)
