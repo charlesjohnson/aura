@@ -1,5 +1,20 @@
 ## Changelog
 
+## [0.1.4](https://github.com/mezmo/aura/compare/v0.1.3...v0.1.4) (2026-07-28)
+
+
+### Bug Fixes
+
+* **config**: add none and xhigh to ReasoningEffort enum [1fab863](https://github.com/mezmo/aura/commit/1fab86374adcefcc5c2b04284e60b14e66ca95b2) - Mike Shearer [#466](https://github.com/mezmo/aura/issues/466)* **mcp**: remove hardcoded transport label from tool log messages [0b2c3b4](https://github.com/mezmo/aura/commit/0b2c3b4ece7c93494d9125d4e0034ee5494a528a) - Mike Shearer
+
+### Documentation
+
+* **mcp**: update execute_mcp_tool doc-comment to match log-line rename [2403fe8](https://github.com/mezmo/aura/commit/2403fe8053824b9a4472480d8e2e27ab70c98a00) - Mike Shearer [#line](https://github.com/mezmo/aura/issues/line) [#line](https://github.com/mezmo/aura/issues/line)
+
+### Features
+
+* **orchestration**: add bounded wait_for poll tool [9158e5e](https://github.com/mezmo/aura/commit/9158e5ee47bae7ab2ed0cc22d17686c09ed32c4a) - Mike Shearer [#420](https://github.com/mezmo/aura/issues/420)
+
 ## [0.1.3](https://github.com/mezmo/aura/compare/v0.1.2...v0.1.3) (2026-07-28)
 
 
