@@ -1,13 +1,19 @@
 # Aura Quickstart Configuration
 #
-# Boots Aura in ORCHESTRATOR mode: a coordinator routes each request —
-# answering simple ones directly, decomposing complex ones across the
-# workers defined below, or asking for clarification when a request is vague.
+# Boots Aura as an SRE ORCHESTRATOR: a coordinator routes each request —
+# answering simple ones directly, decomposing operational tasks across the
+# specialized workers defined below, or asking for clarification when a
+# request is vague. Add MCP servers below to connect your observability
+# stack; the coordinator routes tasks to the right worker automatically.
 #
 # Customize this file to change routing, workers, tools, and knowledge
 # bases. Changes take effect after: docker compose restart aura
 #
 # For all available options, see: examples/reference.toml
+
+# Scratchpad and orchestration artifacts are persisted under this dir; it
+# must be writable in the container (/tmp is).
+memory_dir = "/tmp/aura"
 
 # ── Coordinator ─────────────────────────────────────────────────────
 # In orchestration mode, [agent].system_prompt is the COORDINATOR prompt.
@@ -17,20 +23,59 @@
 name = "Aura Orchestrator"
 # alias = "aura"  # optional: stable identifier for model selection by clients
 system_prompt = """
-You are a coordinator that turns user requests into results by delegating
-to specialized workers.
+You are an SRE Orchestrator that decomposes operational tasks into \
+specialized sub-tasks and delegates to the appropriate worker.
 
-ROUTING GUIDANCE:
-- Simple, single-step questions: answer directly.
-- Multi-step or mixed requests: create a plan and delegate to the workers.
-- Vague requests: ask a brief clarifying question.
+AVAILABLE WORKERS
+- incident-responder: Incident triage — fetch alerts, parse incidents, \
+check oncall schedules, review escalation policies
+- metrics-analyst: Monitoring queries — execute PromQL, validate alerts, \
+analyze trends, detect anomalies
+- log-analyst: Log investigation — search logs, find error patterns, \
+correlate events, reconstruct timelines
 
-Delegate research and analysis to the `researcher` worker, and delegate
-drafting and final write-up to the `writer` worker. Consolidate their
-outputs into a single, coherent answer.
+If any worker shows "none configured" for its tools, let the user know \
+that worker cannot query live systems without MCP servers. Point them to \
+[mcp.servers] in the config and examples/ for setup guidance. Workers \
+without tools can still reason about problems and analyze data the user \
+provides directly.
+
+ROUTING GUIDANCE
+- Incident lookup, status checks, oncall, escalation → incident-responder
+- Metric queries, trends, alert validation, anomalies → metrics-analyst
+- Log searching, error patterns, event correlation → log-analyst
+- Cross-domain tasks → dispatch to multiple workers in parallel
+
+PARALLELISM
+Maximize parallel execution. When tasks have no data dependency, dispatch \
+them concurrently. Only serialize when a later task requires output from \
+an earlier one.
+
+DELEGATION RULES
+When delegating to workers, include:
+- Exactly what data points you need returned
+- Relevant context from prior worker results
+- Maximum response length when appropriate
+
+RESPONSE STRUCTURE
+Lead with a one-line status summary, then list findings. Tag each \
+finding with the severity that matches its content — only include \
+levels that apply:
+- 🔴 **Critical**: something is broken or needs immediate action
+- 🟡 **Warning**: degraded, at risk, or worth watching
+- 🟢 **Normal**: healthy or verified working
+
+Do not force findings into a level. If nothing is critical, omit the \
+🔴 section entirely. End with recommended actions when there is \
+something actionable.
+
+PRINCIPLES
+- Verify with tools before answering — do not guess.
+- If investigation hits a dead end, state what was checked and what \
+remains unknown.
 """
 # Maximum tool-calling rounds per worker turn
-turn_depth = 5
+turn_depth = 15
 
 # ── LLM Provider ────────────────────────────────────────────────────
 # Provider, model, and API key are set in .env — no changes needed here.
@@ -40,78 +85,126 @@ turn_depth = 5
 provider = "{{ env.LLM_PROVIDER }}"
 api_key = "{{ env.LLM_API_KEY }}"
 model = "{{ env.LLM_MODEL }}"
+context_window = 200_000
 # base_url = "{{ env.LLM_BASE_URL }}"    # Uncomment for Ollama or llama-server
 # fallback_tool_parsing = true            # Ollama only. Known issue: currently applied in
 #                                         # single-agent mode ([orchestration].enabled =
 #                                         # false) only, not the orchestration coordinator/
 #                                         # workers — a bug tracked in mezmo/aura#193.
 
+[agent.scratchpad]
+enabled = true
+context_safety_margin = 0.20
+max_extraction_tokens = 10_000
+turn_depth_bonus = 6
+
 # ── Orchestration ───────────────────────────────────────────────────
 
 [orchestration]
 enabled = true
 max_planning_cycles = 2
+quality_threshold = 0.75
 allow_direct_answers = true
 allow_clarification = true
 tools_in_planning = "summary"
-# Where plan state and worker artifacts are persisted (must be writable).
-memory_dir = "/tmp/aura-orchestration"
 
-# Workers reason with the LLM alone until you enable an MCP server below.
+[orchestration.timeouts]
+per_call_timeout_secs = 120
+
+# ── Workers ─────────────────────────────────────────────────────────
+# Each worker specializes in a domain. Workers reason with the LLM alone
+# until you enable an MCP server below. Add mcp_filter to restrict which
+# MCP tools a worker can see — without it, workers see all;
+# mcp_filter = [] gives a worker no MCP tools.
+
+[orchestration.worker.incident-responder]
+description = "Incident triage: fetch incident details, parse alerts, check oncall schedules, and escalation policies"
+turn_depth = 8
+# mcp_filter = ["list_incidents", "get_incident", "list_alerts", "..."]
+preamble = """
+You are an Incident Responder. Use your tools to fetch and parse \
+incidents, check oncall schedules, and gather incident context.
+
+- Always use tools — do not guess or fabricate incident data.
+- Report extracted fields in a structured format.
+- Follow any formatting instructions in your task description.
+"""
+
+[orchestration.worker.metrics-analyst]
+description = "Metrics analysis: query monitoring systems, validate alerts, analyze trends, and identify anomalies"
+turn_depth = 15
+# mcp_filter = ["execute_query", "execute_range_query", "list_metrics", "..."]
+preamble = """
+You are a Metrics Analyst. Use your tools to query and analyze metrics \
+from monitoring systems.
+
+- Always use tools — do not fabricate metric values.
+- Before running range queries, establish the current time for correct ranges.
+- Report results with metric names, labels, and values.
+- Follow any formatting instructions in your task description.
+"""
+
+[orchestration.worker.log-analyst]
+description = "Log analysis: search logs, find error patterns, correlate events across time, and investigate root causes"
+turn_depth = 10
+# mcp_filter = ["search_logs", "analyze_logs", "list_log_fields", "..."]
+preamble = """
+You are a Log Analyst. Use your tools to search and analyze logs for \
+operational investigations.
+
+- Always use tools — do not guess or fabricate log data.
+- Report findings with timestamps, error messages, and relevant context.
+- Follow any formatting instructions in your task description.
+"""
+
+# ─── Additional Workers (uncomment to enable) ────────────────────────
 #
-# IMPORTANT: a worker whose `mcp_filter` is omitted or empty (`[]`) is granted
-# *every* MCP tool. Once you add an MCP server, set an explicit `mcp_filter` on
-# each tool-using worker. The `writer` below ships with a non-matching filter so
-# it stays tool-free; see the per-worker notes for details.
-
-[orchestration.worker.researcher]
-description = "Research and analysis: break a request into parts, gather facts, and reason through the details"
-preamble = """
-You are a Research Specialist. Decompose the task, reason step by step,
-and report clear, well-organized findings for the coordinator to use.
-"""
-# With an MCP server enabled, scope this worker to the tools it needs:
-# mcp_filter = ["my_tool_*"]
-
-[orchestration.worker.writer]
-description = "Drafting and synthesis: turn findings into a clear, well-structured final answer"
-preamble = """
-You are a Writing Specialist. Take the coordinator's goal and any research
-findings and produce a concise, well-structured response.
-"""
-# The writer synthesizes text and needs no tools. The explicit empty
-# filter keeps it tool-free even after you enable an MCP server (an
-# omitted filter would grant it every tool). Leave it as-is.
-mcp_filter = []
+# [orchestration.worker.ops-engineer]
+# description = "Operational tooling: query system state, deployment status, resource usage, and configuration"
+# turn_depth = 10
+# preamble = """
+# You are an Operations Engineer. Use your tools to query operational
+# state and system configuration.
+#
+# - Always use tools — do not guess or fabricate operational state.
+# - Provide output in table format when possible.
+# - Follow any formatting instructions in your task description.
+# """
+#
+# [orchestration.worker.runbook-engineer]
+# description = "Runbook management: read operational documentation and create PRs with improvements post-incident"
+# turn_depth = 20
+# preamble = """
+# You are a Runbook Engineer. Use your tools to read and update
+# operational runbooks and documentation.
+#
+# - Always use tools — do not guess or fabricate file contents.
+# - When updating docs, make targeted changes — do not rewrite or restructure.
+# - Follow any formatting instructions in your task description.
+# """
 
 # ── MCP Tool Servers (optional) ─────────────────────────────────────
-# To give your workers external tools:
-#   1. Uncomment and configure the [mcp] section below.
-#   2. Uncomment `mcp_filter` in the `researcher` block above and set it to the
-#      tools that worker should use. A worker with no `mcp_filter` receives ALL
-#      MCP tools, so scope every tool-using worker explicitly. The `writer`
-#      already has an active no-tool filter and needs no change.
+# Connect your observability stack by adding MCP servers here, then scope
+# each tool-using worker with `mcp_filter`. From inside Docker, reach
+# services running on your host via host.docker.internal. Examples:
 #
-# [mcp]
-# sanitize_schemas = true
-#
-# [mcp.servers.my_tools]
+# [mcp.servers.my-alerting]
 # transport = "http_streamable"
-# url = "http://host.docker.internal:9000/mcp"
-# description = "My MCP tool server"
+# url = "https://mcp.pagerduty.com/mcp"
+# headers = { Authorization = "Token token={{ env.PAGERDUTY_API_TOKEN }}" }
+# description = "Alerting system for incident details and oncall schedules"
+#
+# [mcp.servers.my-metrics]
+# transport = "http_streamable"
+# url = "http://host.docker.internal:9090/mcp"
+# description = "Prometheus metrics server"
+#
+# [mcp.servers.my-logs]
+# transport = "http_streamable"
+# url = "http://host.docker.internal:3100/mcp"
+# description = "Log aggregation server"
 
-# ── Vector Search (optional) ─────────────────────────────────────────
-# Uncomment to enable vector search with Qdrant, then add the store name
-# to a worker's `vector_stores` list.
-#
-# [[vector_stores]]
-# name = "docs"
-# type = "qdrant"
-# url = "http://host.docker.internal:6334"
-# collection_name = "my_collection"
-# context_prefix = "Relevant documentation"
-#
-# [vector_stores.embedding_model]
-# provider = "openai"
-# model = "text-embedding-3-small"
-# api_key = "{{ env.OPENAI_API_KEY }}"
+[mcp]
+sanitize_schemas = true
+
+[mcp.servers]
