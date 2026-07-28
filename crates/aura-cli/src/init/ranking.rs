@@ -230,20 +230,27 @@ mod tests {
             "o3",
             "o4-mini",
             "gpt-4.1",
-            "gpt-5.4",
             "gpt-5.5",
-            "gpt-5.5-2025-11-01", // dated snapshot of a recommended id
+            "gpt-5.6-sol",
+            "gpt-5.6-terra",
+            "gpt-5.6-terra-2026-07-09", // dated snapshot of a recommended id
+            "gpt-5.6-luna",
             "text-embedding-3-small",
         ]
         .iter()
         .map(|s| s.to_string())
         .collect();
 
-        // Only the recommended gpt-5.5 is shown, and the clean id wins over its
-        // dated snapshot. gpt-5.4 / o-series / 4o / 3.5 are dropped.
+        // Only the recommended gpt-5.6 flavors are shown, best-first per
+        // `family_roots` (terra default), and the clean id wins over its dated
+        // snapshot. gpt-5.5 / o-series / 4o / 3.5 are dropped.
         assert_eq!(
             rank_shortlist(Provider::OpenAI, &models),
-            vec!["gpt-5.5".to_string()]
+            vec![
+                "gpt-5.6-terra".to_string(),
+                "gpt-5.6-sol".to_string(),
+                "gpt-5.6-luna".to_string(),
+            ]
         );
     }
 
@@ -264,17 +271,17 @@ mod tests {
         let models: Vec<String> = [
             "claude-sonnet-4-6-20251001",
             "claude-sonnet-4-6-20251115", // newer sonnet snapshot
-            "claude-opus-4-8-20251101",
+            "claude-opus-5-20260724",
         ]
         .iter()
         .map(|s| s.to_string())
         .collect();
-        // Sonnet is the default (first); the newest dated id wins per family.
+        // Opus is the default (first); the newest dated id wins per family.
         assert_eq!(
             rank_shortlist(Provider::Anthropic, &models),
             vec![
+                "claude-opus-5-20260724".to_string(),
                 "claude-sonnet-4-6-20251115".to_string(),
-                "claude-opus-4-8-20251101".to_string(),
             ]
         );
     }
