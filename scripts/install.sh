@@ -9,6 +9,7 @@
 #   AURA_INSTALL          - Install directory (default: ~/.local/bin)
 #   AURA_COMPONENT        - Which binary: "all", "server", "cli" (default: all)
 #   AURA_REQUIRE_CHECKSUM - Fail (1) instead of warn (0) when a checksum is missing (default: 0)
+#   AURA_CHECKSUMS        - Verify against this local checksums.txt instead of downloading one
 #   AURA_NO_BREW          - Skip Homebrew and download directly on macOS (default: 0)
 
 set -euo pipefail
