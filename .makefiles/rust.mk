@@ -23,11 +23,12 @@ build-rust: $(DOCKER_ENV) ## Build all rust targets
 .PHONY:coverage
 coverage: $(DOCKER_ENV) $(REPORT_DIR) $(GRCOV_BIN) ## Run the local test suite with code coverage
 	-$(MAKE) debug-PROJECT_ROOT
-	-export RUSTFLAGS="--allow=warnings -Cinstrument-coverage"; \
+	@# Terminate the shell on a failed compile: make only sees the last status.
+	export RUSTFLAGS="--allow=warnings -Cinstrument-coverage"; \
 		export LLVM_PROFILE_FILE=$(PROJECT_ROOT)/$(COVERAGE_DIR)/build-%p-%m.profraw; \
-		cargo build --all-targets --workspace --frozen; \
+		cargo build --all-targets --workspace --frozen || exit 1; \
 		export LLVM_PROFILE_FILE=$(PROJECT_ROOT)/$(COVERAGE_DIR)/profile-%p-%m.profraw; \
-		$(MAKE) nextest|| touch $(TARGET_DIR)/.nextest-failed
+		$(MAKE) nextest || touch $(TARGET_DIR)/.nextest-failed
 	$(RUN) grcov $(COVERAGE_DIR) . \
 		--binary-path $(TARGET_DIR)/debug \
 		--ignore-not-existing \
