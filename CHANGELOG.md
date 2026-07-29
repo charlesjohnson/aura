@@ -1,5 +1,16 @@
 ## Changelog
 
+## [0.1.6](https://github.com/mezmo/aura/compare/v0.1.5...v0.1.6) (2026-07-29)
+
+
+### Bug Fixes
+
+* **ci**: fail the coverage lane when the compile fails [df0dff1](https://github.com/mezmo/aura/commit/df0dff18497639dd5286519a140babb66d630d3d) - Mike Shearer [#140](https://github.com/mezmo/aura/issues/140)
+
+### Documentation
+
+* **readme**: describe aura as production-tested [4629ae2](https://github.com/mezmo/aura/commit/4629ae242972c16a58895aff6041928eded95ad3) - Chip Johnson
+
 ## [0.1.5](https://github.com/mezmo/aura/compare/v0.1.4...v0.1.5) (2026-07-28)
 
 
