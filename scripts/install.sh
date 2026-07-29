@@ -173,6 +173,15 @@ download() {
     fi
 }
 
+sha256_of() {
+    local file="$1"
+    if command -v sha256sum >/dev/null 2>&1; then
+        sha256sum "${file}" | cut -d' ' -f1
+    elif command -v shasum >/dev/null 2>&1; then
+        shasum -a 256 "${file}" | cut -d' ' -f1
+    fi
+}
+
 verify_checksum() {
     local file="$1" asset_name="$2" checksums="$3"
     if [[ ! -s "${checksums}" ]]; then
@@ -194,7 +203,15 @@ verify_checksum() {
         return 0
     fi
     local actual
-    actual=$(sha256sum "${file}" | cut -d' ' -f1)
+    actual=$(sha256_of "${file}")
+    if [[ -z "${actual}" ]]; then
+        if [[ "${REQUIRE_CHECKSUM}" == 1 ]]; then
+            echo "Error: need sha256sum or shasum to verify checksums and AURA_REQUIRE_CHECKSUM is set."
+            exit 1
+        fi
+        echo "  Warning: no sha256sum or shasum found, skipping verification"
+        return 0
+    fi
     if [[ "${actual}" != "${expected}" ]]; then
         echo "Error: checksum mismatch for ${asset_name}"
         echo "  expected: ${expected}"
