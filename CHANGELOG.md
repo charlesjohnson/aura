@@ -1,5 +1,16 @@
 ## Changelog
 
+## [0.1.8](https://github.com/mezmo/aura/compare/v0.1.7...v0.1.8) (2026-07-29)
+
+
+### Bug Fixes
+
+* **install**: fall back to shasum when sha256sum is absent [7332b36](https://github.com/mezmo/aura/commit/7332b368fd2e6e51db60c215dce5995376278c82) - Chip Johnson
+
+### Documentation
+
+* **scripts**: add readme covering install.sh switches [ae2ae9c](https://github.com/mezmo/aura/commit/ae2ae9cb4b15a462d14f9cabe9a5d15d0361bac4) - Chip Johnson
+
 ## [0.1.7](https://github.com/mezmo/aura/compare/v0.1.6...v0.1.7) (2026-07-29)
 
 
