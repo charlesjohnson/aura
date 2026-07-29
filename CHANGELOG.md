@@ -1,5 +1,12 @@
 ## Changelog
 
+## [0.1.7](https://github.com/mezmo/aura/compare/v0.1.6...v0.1.7) (2026-07-29)
+
+
+### Bug Fixes
+
+* **bedrock**: wire region into profile credentials provider [36f5241](https://github.com/mezmo/aura/commit/36f5241021a4a2d5aa3e5df1171dfbad98f83ab2) - Tony Rogers [#482](https://github.com/mezmo/aura/issues/482)
+
 ## [0.1.6](https://github.com/mezmo/aura/compare/v0.1.5...v0.1.6) (2026-07-29)
 
 
