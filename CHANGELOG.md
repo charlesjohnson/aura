@@ -1,5 +1,12 @@
 ## Changelog
 
+## [0.1.10](https://github.com/mezmo/aura/compare/v0.1.9...v0.1.10) (2026-07-31)
+
+
+### Build System
+
+* cross-compile linux binaries with zig [7c6e279](https://github.com/mezmo/aura/commit/7c6e279ad5a907213cc69a69533b489ad90db566) - Jacob Hull
+
 ## [0.1.9](https://github.com/mezmo/aura/compare/v0.1.8...v0.1.9) (2026-07-30)
 
 
