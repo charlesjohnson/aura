@@ -1,5 +1,24 @@
 ## Changelog
 
+## [0.1.11](https://github.com/mezmo/aura/compare/v0.1.10...v0.1.11) (2026-07-31)
+
+
+### Bug Fixes
+
+* **web-server**: warn when server inactivity is set for orchestration [ab587b7](https://github.com/mezmo/aura/commit/ab587b78006fd2ea24e4dca90453fe864333db1e) - Mike Shearer [#394](https://github.com/mezmo/aura/issues/394)
+
+
+
+### Features
+
+* **orchestration**: add inactivity timeout config and deadline type [2ade5ba](https://github.com/mezmo/aura/commit/2ade5ba4f47f0f2ddd815162d304c6d1e8d33f77) - Mike Shearer [#394](https://github.com/mezmo/aura/issues/394)
+
+* **orchestration**: fail silent provider turns at the inactivity window [c81954f](https://github.com/mezmo/aura/commit/c81954ffa5b1fb533404366c544293bf79450047) - Mike Shearer [#394](https://github.com/mezmo/aura/issues/394)
+
+* **orchestration**: timeout conflict warnings and budget replan stop [5e2adc1](https://github.com/mezmo/aura/commit/5e2adc1e43b86d756b11faecc27f9adff47b69ef) - Mike Shearer [#394](https://github.com/mezmo/aura/issues/394)
+
+* **web-server**: re-arm the inactivity deadline in the SSE select loop [cd60352](https://github.com/mezmo/aura/commit/cd603523b2e900b672b7aa04c942f997951ac273) - Mike Shearer [#394](https://github.com/mezmo/aura/issues/394)
+
 ## [0.1.10](https://github.com/mezmo/aura/compare/v0.1.9...v0.1.10) (2026-07-31)
 
 
