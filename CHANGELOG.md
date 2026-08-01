@@ -1,5 +1,12 @@
 ## Changelog
 
+## [0.1.12](https://github.com/mezmo/aura/compare/v0.1.11...v0.1.12) (2026-08-01)
+
+
+### Chores
+
+* **install**: add package methods and harden the installer [0244ee9](https://github.com/mezmo/aura/commit/0244ee920c8cd40f163d8d2c3d5a04e5aef7bc98) - Jacob Hull [#473](https://github.com/mezmo/aura/issues/473) [#388](https://github.com/mezmo/aura/issues/388) [#405](https://github.com/mezmo/aura/issues/405)
+
 ## [0.1.11](https://github.com/mezmo/aura/compare/v0.1.10...v0.1.11) (2026-07-31)
 
 
