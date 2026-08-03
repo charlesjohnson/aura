@@ -1,5 +1,12 @@
 ## Changelog
 
+## [0.1.13](https://github.com/mezmo/aura/compare/v0.1.12...v0.1.13) (2026-08-03)
+
+
+### Bug Fixes
+
+* **bedrock**: support managed knowledge bases in bedrock_kb store [5233d60](https://github.com/mezmo/aura/commit/5233d60a2a4fdd6d57e190a823f5506e360a599a) - Tony Rogers [#499](https://github.com/mezmo/aura/issues/499)
+
 ## [0.1.12](https://github.com/mezmo/aura/compare/v0.1.11...v0.1.12) (2026-08-01)
 
 
