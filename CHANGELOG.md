@@ -1,5 +1,14 @@
 ## Changelog
 
+## [0.1.14](https://github.com/mezmo/aura/compare/v0.1.13...v0.1.14) (2026-08-04)
+
+
+### Bug Fixes
+
+* **helm**: add default values for command/args [99204d5](https://github.com/mezmo/aura/commit/99204d5fba33daa4a8fdc722350957a0ee1cb3b6) - Jeff Vogt
+
+* **helm**: clarify aura image entrypoint/cmd override behavior [f79291b](https://github.com/mezmo/aura/commit/f79291b0a6be62ffe5c8331377a33443ddc1a496) - Jeff Vogt
+
 ## [0.1.13](https://github.com/mezmo/aura/compare/v0.1.12...v0.1.13) (2026-08-03)
 
 
