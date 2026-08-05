@@ -1,5 +1,20 @@
 ## Changelog
 
+## [0.1.15](https://github.com/mezmo/aura/compare/v0.1.14...v0.1.15) (2026-08-05)
+
+
+### Documentation
+
+* **readme**: remove old demo gif from assets directory [2433354](https://github.com/mezmo/aura/commit/2433354e2d589b1d214865e10a2c80773e99fad8) - Mike Shearer
+
+* **readme**: update header gif to higher quality webp [03e26e1](https://github.com/mezmo/aura/commit/03e26e1e1d54334c0e3decfa499c62b81aead21f) - Mike Shearer
+
+
+
+### Features
+
+* **init**: apply benchmark-validated orchestration defaults [e94863f](https://github.com/mezmo/aura/commit/e94863f6786af86e8ed0e6adb38303c3ba01f55c) - Mike Shearer [#212](https://github.com/mezmo/aura/issues/212) [#386](https://github.com/mezmo/aura/issues/386)
+
 ## [0.1.14](https://github.com/mezmo/aura/compare/v0.1.13...v0.1.14) (2026-08-04)
 
 
