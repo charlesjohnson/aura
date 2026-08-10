@@ -1,5 +1,36 @@
 ## Changelog
 
+## [0.1.16](https://github.com/mezmo/aura/compare/v0.1.15...v0.1.16) (2026-08-10)
+
+
+### Bug Fixes
+
+* **a2a**: deliver a terminal frame on cross-instance cancel [bcf4eee](https://github.com/mezmo/aura/commit/bcf4eee8772081b419165289e2598fe24b60df1f) - Mike Shearer [#475](https://github.com/mezmo/aura/issues/475)
+
+* **cli**: clamp code block padding to the render width [5b552dc](https://github.com/mezmo/aura/commit/5b552dc3ec44371daac62e0b6b7eb332cc5b499a) - Mike Shearer [#520](https://github.com/mezmo/aura/issues/520)
+
+* **cli**: use dark grey code backgrounds in default theme [77e8212](https://github.com/mezmo/aura/commit/77e821262ff6be782293e80fcbb4e29f9e21917a) - Mike Shearer [#519](https://github.com/mezmo/aura/issues/519)
+
+* **init**: pin default openai model to gpt-5.5 [cbffded](https://github.com/mezmo/aura/commit/cbffded71d51f6915b2d2c9696fc5548100580d9) - Mike Shearer [#511](https://github.com/mezmo/aura/issues/511)
+
+* **quickstart-k8s-sre**: add scratchpad to AURA config [1da5118](https://github.com/mezmo/aura/commit/1da51182d3325983747e6819b82bf9a867582f41) - Jeff Vogt
+
+
+
+### Documentation
+
+* **adr**: adopt branch-per-channel nightly/beta/stable promotion [a26684b](https://github.com/mezmo/aura/commit/a26684bf88091269ca662715a7b437d62165edc5) - Jacob Hull
+
+* surface pre-push quality gate in claude.md [6c54ecf](https://github.com/mezmo/aura/commit/6c54ecf1acb6be739791d508dab9bd8626577445) - Mike Shearer
+
+
+
+### Features
+
+* **a2a**: add v0.3 protocol compatibility for kagent [c4ffe3d](https://github.com/mezmo/aura/commit/c4ffe3d775eef14fd4194f357cd9d42c00ef5fe4) - Mike Shearer [#451](https://github.com/mezmo/aura/issues/451)
+
+* **cli**: enable scratchpad for servers added via /mcp add [f66b66a](https://github.com/mezmo/aura/commit/f66b66a2e94919e501326618bc390306ee3391c2) - Tony Rogers [#512](https://github.com/mezmo/aura/issues/512)
+
 ## [0.1.15](https://github.com/mezmo/aura/compare/v0.1.14...v0.1.15) (2026-08-05)
 
 
