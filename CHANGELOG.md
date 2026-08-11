@@ -1,5 +1,12 @@
 ## Changelog
 
+## [0.1.18](https://github.com/mezmo/aura/compare/v0.1.17...v0.1.18) (2026-08-11)
+
+
+### Bug Fixes
+
+* **a2a**: durably record approval decisions on the redis backend [ab6c4e6](https://github.com/mezmo/aura/commit/ab6c4e6bba73d15f117fcc40a9729a392c5023a5) - Justin Gross [#474](https://github.com/mezmo/aura/issues/474)
+
 ## [0.1.17](https://github.com/mezmo/aura/compare/v0.1.16...v0.1.17) (2026-08-11)
 
 
