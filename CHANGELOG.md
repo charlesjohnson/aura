@@ -1,5 +1,18 @@
 ## Changelog
 
+## [0.1.17](https://github.com/mezmo/aura/compare/v0.1.16...v0.1.17) (2026-08-11)
+
+
+### Bug Fixes
+
+* **a2a**: include assistant turns in conversation history [72f1e8c](https://github.com/mezmo/aura/commit/72f1e8c45b58cb2acebd96bd7b82bdf17eb72808) - Justin Gross [#368](https://github.com/mezmo/aura/issues/368)
+
+
+
+### Continuous Integration
+
+* sign and notarize macos binaries [ddca595](https://github.com/mezmo/aura/commit/ddca5953369cddd2913af660d1d8710327dfafdb) - Jacob Hull [#323](https://github.com/mezmo/aura/issues/323)
+
 ## [0.1.16](https://github.com/mezmo/aura/compare/v0.1.15...v0.1.16) (2026-08-10)
 
 
