@@ -67,9 +67,9 @@ aura
 Production controls define an operator-managed boundary around AURA:
 
 - Runs in your infrastructure, including air-gapped environments when model providers and MCP servers are locally reachable.
-- Agent prompts and tool data are sent only to the model providers, MCP servers, approval services, storage backends, and tracing destinations you configure. Mezmo CLI product telemetry is separately disclosed and controlled.
+- AURA sends agent prompts and tool data to the model providers, MCP servers, approval services, storage backends, and tracing destinations you configure. Enabled client-side tools and STDIO processes can initiate additional network traffic unless system-level network policy prevents it. Mezmo CLI product telemetry is separately disclosed and controlled.
 - Sensitive tool calls can require explicit human approval.
-- Credentials remain outside prompts and agent configuration when supplied through environment variables or secret mounts.
+- Credentials supplied through environment variables or secret mounts remain outside prompts only when referenced from designated authentication fields; environment substitution in prompt-bearing fields places their values into model context.
 - Tool, model, and orchestration activity can be exported as [OpenTelemetry traces](https://docs.mezmo.com/aura/tracing-spans).
 
 See the complete [security and data-handling model](SECURITY.md), including telemetry defaults, permission boundaries, prompt-injection risks, and supply-chain verification.
