@@ -1,5 +1,12 @@
 ## Changelog
 
+## [0.1.19](https://github.com/mezmo/aura/compare/v0.1.18...v0.1.19) (2026-08-12)
+
+
+### Features
+
+* **hitl**: stamp the approval decision id on the gated call's span [25afaf7](https://github.com/mezmo/aura/commit/25afaf72f074b2bd8e748c9cb2619df44b2578c0) - Justin Gross
+
 ## [0.1.18](https://github.com/mezmo/aura/compare/v0.1.17...v0.1.18) (2026-08-11)
 
 
