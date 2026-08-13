@@ -256,6 +256,7 @@ mod tests {
         use tracing::Instrument;
         use tracing_subscriber::layer::SubscriberExt;
 
+        use super::super::super::decision::ApprovalDecision;
         use super::super::super::registry::PendingApprovals;
         use super::*;
         use crate::approval_event_broker::{self, ApprovalLifecycleEvent};

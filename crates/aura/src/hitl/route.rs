@@ -223,6 +223,14 @@ impl DecisionRoute {
                 let decision_id = request.decision_id;
                 let scope = request.scope.clone();
 
+                // Mirrors the stamp at the top of `decide`: ahead of any
+                // outcome, so the correlation holds on either route.
+                crate::logging::set_span_attribute(
+                    &tracing::Span::current(),
+                    crate::logging::ATTR_DECISION_ID,
+                    decision_id.to_string(),
+                );
+
                 approval_event_broker::publish(
                     &request_id,
                     ApprovalLifecycleEvent::Requested((&request).into()),
