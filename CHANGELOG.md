@@ -1,5 +1,20 @@
 ## Changelog
 
+## [0.1.20](https://github.com/mezmo/aura/compare/v0.1.19...v0.1.20) (2026-08-13)
+
+
+### Bug Fixes
+
+* **cli**: render concurrent worker reasoning per task [cb6e3a6](https://github.com/mezmo/aura/commit/cb6e3a630c124420da99badf196c5c5a4baea35d) - Justin Gross
+
+* **hitl**: restore decision id span stamp on webhook gate route [29e77b4](https://github.com/mezmo/aura/commit/29e77b43dba398c3cbac5895f9fea603943c87ea) - Mike Shearer [#496](https://github.com/mezmo/aura/issues/496)
+
+
+
+### Features
+
+* **hitl**: approver header forwarding type surface [368d00b](https://github.com/mezmo/aura/commit/368d00b3faffffd446b1e21fa082fc716a68dfd2) - Mike Shearer [#496](https://github.com/mezmo/aura/issues/496)
+
 ## [0.1.19](https://github.com/mezmo/aura/compare/v0.1.18...v0.1.19) (2026-08-12)
 
 
