@@ -1,5 +1,20 @@
 ## Changelog
 
+## [0.1.21](https://github.com/mezmo/aura/compare/v0.1.20...v0.1.21) (2026-08-13)
+
+
+### Bug Fixes
+
+* **cli**: keep informative args in tool-call summary [9c05a8d](https://github.com/mezmo/aura/commit/9c05a8d1f245fad70b47181e45ee625ed165161f) - Mike Shearer [#536](https://github.com/mezmo/aura/issues/536)
+
+
+
+### Documentation
+
+* clarify AURA positioning and production security [2ca8da1](https://github.com/mezmo/aura/commit/2ca8da1573001c6542cd9a96311a94c2f07529da) - Chip Johnson
+
+* qualify production data boundaries [48e0d60](https://github.com/mezmo/aura/commit/48e0d603b365f7a91be991f56896ec142d5c970c) - Chip Johnson
+
 ## [0.1.20](https://github.com/mezmo/aura/compare/v0.1.19...v0.1.20) (2026-08-13)
 
 
