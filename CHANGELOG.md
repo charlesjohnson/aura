@@ -1,5 +1,76 @@
 ## Changelog
 
+# [0.2.0](https://github.com/mezmo/aura/compare/v0.1.21...v0.2.0) (2026-08-19)
+
+
+### Bug Fixes
+
+* **ci**: compute the release version without a remote [e655619](https://github.com/mezmo/aura/commit/e65561919d370b5b63d484ec596030856b6457a0) - Jacob Hull
+
+* **cli**: harden the /model picker against remote text [13cfdc5](https://github.com/mezmo/aura/commit/13cfdc5e488a058679ec3744df04bb62fb57efa3) - Eric Lake
+
+* **cli**: sanitize the agent overview and bound the unique-match hint [a877687](https://github.com/mezmo/aura/commit/a8776871dac37369aa44d455d8aab4b3c2629f8d) - Eric Lake
+
+* **cli**: table for a lone model, and fit /model rows at any width [746fb55](https://github.com/mezmo/aura/commit/746fb559f98b6283514ae003dfca2a88e57f7cdb) - Eric Lake
+
+* **orchestration**: address adversarial review of the async migration [9b3add7](https://github.com/mezmo/aura/commit/9b3add7a4454146268deaaa89956acd0d3ea030f) - Mike Shearer [#421](https://github.com/mezmo/aura/issues/421)
+
+* **scratchpad**: judge symlinked path components by canonical target [02183f0](https://github.com/mezmo/aura/commit/02183f067dc5b13e57306ebd085811b7a304facd) - Mike Shearer [#421](https://github.com/mezmo/aura/issues/421)
+
+* **scratchpad**: report validation I/O faults as I/O errors [4f2eb54](https://github.com/mezmo/aura/commit/4f2eb54186ae02aa108f14988d578229eca4cd5a) - Mike Shearer [#421](https://github.com/mezmo/aura/issues/421)
+
+* **telemetry**: add system prompt attribute to spans [474556e](https://github.com/mezmo/aura/commit/474556efc177bbd18670f2ce4a130bcb824f9b8e) - Dan Hable [#272](https://github.com/mezmo/aura/issues/272)
+
+* **tools**: restore spawn isolation lost in the inline-await cleanup [7f46e95](https://github.com/mezmo/aura/commit/7f46e95f15670bc9f7a2aee7e82e2275376d1651) - Mike Shearer [#421](https://github.com/mezmo/aura/issues/421)
+
+
+
+### Code Refactoring
+
+* **orchestration**: drop blocking path predicates from persistence [0373a79](https://github.com/mezmo/aura/commit/0373a79b43ffec833eeb139e93c23cc9feb5a05e) - Mike Shearer [#421](https://github.com/mezmo/aura/issues/421)
+
+* **tools**: make ToolWrapper::transform_output async [6d82524](https://github.com/mezmo/aura/commit/6d82524ef32093b59bcc322a77b53545b282d2a1) - Mike Shearer [#421](https://github.com/mezmo/aura/issues/421)
+
+
+
+### Continuous Integration
+
+* create the release branch before computing the version [1a68049](https://github.com/mezmo/aura/commit/1a680497e001e9ed5a6c0304809d35553aa73047) - Jacob Hull
+
+* **packaging**: publish deb and rpm packages to cloudsmith [6270927](https://github.com/mezmo/aura/commit/627092745e38bb63c029a2ab90fc1179a93e5814) - Jacob Hull
+
+
+
+### Documentation
+
+* **examples**: describe the incident-response agents [60079ad](https://github.com/mezmo/aura/commit/60079ad4b95df3641caa1241ac8b35bd4c46a2b1) - Eric Lake
+
+* **orchestration**: drop change-history references from manifest-loading comments [26d48e1](https://github.com/mezmo/aura/commit/26d48e18360b8bc1fe59b15f7895bca292795fdd) - Mike Shearer [#421](https://github.com/mezmo/aura/issues/421)
+
+
+
+### Features
+
+* **cli**: show agent descriptions in the /model picker [88470a2](https://github.com/mezmo/aura/commit/88470a2600a1367ddc77508c194b04614ad96286) - Eric Lake
+
+* **config**: add optional [agent].description [4bc6bcd](https://github.com/mezmo/aura/commit/4bc6bcdc9c466178cd1b1eb553f5ff861c4dab97) - Eric Lake
+
+* **server**: expose the agent description over the wire [3fc448f](https://github.com/mezmo/aura/commit/3fc448fe7a662d80f965590b5cfc612abcfa8989) - Eric Lake
+
+
+
+### Performance Improvements
+
+* **orchestration**: bound session manifest traversal by limit [bafdb0e](https://github.com/mezmo/aura/commit/bafdb0ef12cebcb6b1781e252e6b424772d0fb35) - Mike Shearer [#421](https://github.com/mezmo/aura/issues/421)
+
+
+
+### **BREAKING CHANGES**
+
+* **tools:** ToolWrapper::transform_output is now async and
+WrappedTool::call returns a Send-only future. External implementors
+must add async to their override and await transform_output calls.
+
 ## [0.1.21](https://github.com/mezmo/aura/compare/v0.1.20...v0.1.21) (2026-08-13)
 
 
