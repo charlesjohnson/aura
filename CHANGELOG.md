@@ -1,5 +1,12 @@
 ## Changelog
 
+## [0.2.2](https://github.com/mezmo/aura/compare/v0.2.1...v0.2.2) (2026-08-20)
+
+
+### Features
+
+* **web**: add detail query parameter to /aura/info [e53ca68](https://github.com/mezmo/aura/commit/e53ca685cfd9ba5a8f7fd23c433f6d3618d1b9b4) - Dan Hable [#550](https://github.com/mezmo/aura/issues/550)
+
 ## [0.2.1](https://github.com/mezmo/aura/compare/v0.2.0...v0.2.1) (2026-08-20)
 
 
