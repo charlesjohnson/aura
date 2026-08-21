@@ -1,5 +1,38 @@
 ## Changelog
 
+## [0.2.3](https://github.com/mezmo/aura/compare/v0.2.2...v0.2.3) (2026-08-21)
+
+
+### Build System
+
+* enable fat lto, single codegen unit, and symbol stripping [4217762](https://github.com/mezmo/aura/commit/4217762cc61225465759e3cac541c7f9b71f486e) - Jacob Hull
+
+
+
+### Chores
+
+* **deps**: bump h2 to 0.4.17 [8003845](https://github.com/mezmo/aura/commit/8003845b82c541a13ba0d85fc0a99175c27652d1) - Jeff Vogt
+
+* **packaging**: compress deb and rpm payloads with xz [ec4accc](https://github.com/mezmo/aura/commit/ec4acccf7324dec28ef58fab6a37d5f0fec9020a) - Jacob Hull
+
+* switch release profile to thin lto [43e9bff](https://github.com/mezmo/aura/commit/43e9bff1ccea1e51095883732b7de58d297290b9) - Jacob Hull
+
+
+
+### Continuous Integration
+
+* **release**: bake version into homebrew formula urls [33878a5](https://github.com/mezmo/aura/commit/33878a5e00bccca3807b8a13dc5cef410683e669) - Jacob Hull
+
+
+
+### Features
+
+* **hitl**: send requesting agent name on webhook approvals [5b13b65](https://github.com/mezmo/aura/commit/5b13b6588ae3b43f7e76a6cb908b71e09720b232) - Dan Hable [#494](https://github.com/mezmo/aura/issues/494)
+
+* **otel**: add http/protobuf otlp export path [17bc38c](https://github.com/mezmo/aura/commit/17bc38c026a7301bbe26d2e18a4e2403676c8ae4) - Jeff Vogt
+
+* **otel**: support tls for otlp trace export [ff534bc](https://github.com/mezmo/aura/commit/ff534bc2ae4b057d69d0899bd16befe4f304915d) - Jeff Vogt
+
 ## [0.2.2](https://github.com/mezmo/aura/compare/v0.2.1...v0.2.2) (2026-08-20)
 
 
