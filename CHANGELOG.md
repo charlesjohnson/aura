@@ -1,5 +1,20 @@
 ## Changelog
 
+## [0.2.4](https://github.com/mezmo/aura/compare/v0.2.3...v0.2.4) (2026-08-24)
+
+
+### Bug Fixes
+
+* **orchestration**: accept the reasoning field on wait_for calls [52ee114](https://github.com/mezmo/aura/commit/52ee1147cf9bacf87a1d36c6656894cac18727d0) - Mike Shearer
+
+
+
+### Features
+
+* **hitl**: include agent_name in config_gate origin [33412f7](https://github.com/mezmo/aura/commit/33412f7483a421b510e7331a50f83399bf026fc2) - Dan Hable [#494](https://github.com/mezmo/aura/issues/494)
+
+* **scratchpad**: add offset/limit pagination to iterate_over [a86d0e0](https://github.com/mezmo/aura/commit/a86d0e05f28b3c37b4ae8f1aadf9d99e6fe56942) - Tony Rogers [#585](https://github.com/mezmo/aura/issues/585)
+
 ## [0.2.3](https://github.com/mezmo/aura/compare/v0.2.2...v0.2.3) (2026-08-21)
 
 
