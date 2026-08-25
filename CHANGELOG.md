@@ -1,5 +1,12 @@
 ## Changelog
 
+## [0.2.5](https://github.com/mezmo/aura/compare/v0.2.4...v0.2.5) (2026-08-25)
+
+
+### Bug Fixes
+
+* **orchestration**: number planning phase artifacts by phase index [7a40e06](https://github.com/mezmo/aura/commit/7a40e0630ae4bca0ffba06393b3ff97cc42ff502) - Dan Hable [#183](https://github.com/mezmo/aura/issues/183)
+
 ## [0.2.4](https://github.com/mezmo/aura/compare/v0.2.3...v0.2.4) (2026-08-24)
 
 
