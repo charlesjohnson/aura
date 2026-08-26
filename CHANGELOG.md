@@ -1,5 +1,18 @@
 ## Changelog
 
+## [0.2.6](https://github.com/mezmo/aura/compare/v0.2.5...v0.2.6) (2026-08-26)
+
+
+### Bug Fixes
+
+* **config**: validate memory_dir writability at startup [1045085](https://github.com/mezmo/aura/commit/104508573d58e18aa1c272e2d133b790bb0a1643) - Dan Hable [#493](https://github.com/mezmo/aura/issues/493)
+
+
+
+### Features
+
+* consolidate the cli and web server into one binary [aeb592d](https://github.com/mezmo/aura/commit/aeb592de401203fa9a09152a2a06079b25255429) - Jacob Hull [#409](https://github.com/mezmo/aura/issues/409) [#410](https://github.com/mezmo/aura/issues/410) [#353](https://github.com/mezmo/aura/issues/353)
+
 ## [0.2.5](https://github.com/mezmo/aura/compare/v0.2.4...v0.2.5) (2026-08-25)
 
 
