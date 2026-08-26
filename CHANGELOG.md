@@ -1,5 +1,18 @@
 ## Changelog
 
+## [0.2.7](https://github.com/mezmo/aura/compare/v0.2.6...v0.2.7) (2026-08-26)
+
+
+### Features
+
+* **streaming**: consistent aura.usage and add aura.context_usage event [f061320](https://github.com/mezmo/aura/commit/f061320576e26b0f415b04b74a6bbfaa9d88ad97) - Jacob Hull [#113](https://github.com/mezmo/aura/issues/113)
+
+
+
+### Tests
+
+* consolidate mock streaming agents into MockAgent [5d7dcd2](https://github.com/mezmo/aura/commit/5d7dcd2565b9e068da8fc6fda2b9def69c23043d) - Mike Shearer [#575](https://github.com/mezmo/aura/issues/575)
+
 ## [0.2.6](https://github.com/mezmo/aura/compare/v0.2.5...v0.2.6) (2026-08-26)
 
 
