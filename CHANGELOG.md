@@ -1,5 +1,12 @@
 ## Changelog
 
+## [0.2.9](https://github.com/mezmo/aura/compare/v0.2.8...v0.2.9) (2026-08-27)
+
+
+### Bug Fixes
+
+* **mcp**: truncate tool-result previews on char boundaries [a5aec84](https://github.com/mezmo/aura/commit/a5aec84dc7bf75a8672c698f8a390adbabda63cf) - Mike Shearer [#609](https://github.com/mezmo/aura/issues/609)
+
 ## [0.2.8](https://github.com/mezmo/aura/compare/v0.2.7...v0.2.8) (2026-08-26)
 
 
