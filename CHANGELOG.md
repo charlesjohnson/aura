@@ -1,5 +1,108 @@
 ## Changelog
 
+## [0.2.11](https://github.com/mezmo/aura/compare/v0.2.10...v0.2.11) (2026-08-27)
+
+
+### Bug Fixes
+
+* **cli**: correct the commands init prints for a copy-paste [fdfbc00](https://github.com/mezmo/aura/commit/fdfbc00f518f7bb999d8614eb9f085147f062d80) - Eric Lake
+
+* **cli**: drop route-specific wording from approval-requested line [30638e8](https://github.com/mezmo/aura/commit/30638e8e0907792682586cac2df06942f115c21c) - Mike Shearer [#615](https://github.com/mezmo/aura/issues/615)
+
+* **cli**: match .env lines the way the runtime loader reads them [2a87586](https://github.com/mezmo/aura/commit/2a875868a8e5590f419ff2b9cdef7f23d43f753f) - Eric Lake
+
+* **cli**: point init's next steps at a config bare aura cannot find [a043a24](https://github.com/mezmo/aura/commit/a043a2478fcb6249130163d737dc196cc5e3d1b3) - Eric Lake
+
+* **cli**: quote init's next-step paths for the host shell [cf57932](https://github.com/mezmo/aura/commit/cf57932f0da9851f0fa951d159b78ab0774b2720) - Eric Lake
+
+* **cli**: refuse a global install that would replace another agent [842b55b](https://github.com/mezmo/aura/commit/842b55bbe388ac58b981b3c8840dade56fdd0fe2) - Eric Lake
+
+* **cli**: warn before replacing a key shared by installed agents [69854ff](https://github.com/mezmo/aura/commit/69854ff3ed13ba91d622e362f41f6d6865480dcf) - Eric Lake
+
+* **examples**: make shipped configs loadable as documented [96cca0c](https://github.com/mezmo/aura/commit/96cca0c3a065d3fadb2b3d4012fb5c2b5f35e0ef) - Mike Shearer
+
+* **hitl**: show cleartext-capture warning on the web-server console [35f3cce](https://github.com/mezmo/aura/commit/35f3ccec9d8c2ec314d7e1c9bc1e0251d9b8ec4d) - Mike Shearer
+
+* **hitl**: stamp the decision id at both approval entry points [8a9b4fc](https://github.com/mezmo/aura/commit/8a9b4fccb869c1e363e37abc8278536e542cd33e) - Mike Shearer
+
+* **hitl**: thread the arm's start instant through the extraction [d1d3d61](https://github.com/mezmo/aura/commit/d1d3d6129c3c38f89892017c3e18bc9c7efed35e) - Mike Shearer
+
+* **hitl**: warn instead of reject on plaintext webhook capture [edbb5d7](https://github.com/mezmo/aura/commit/edbb5d7fd0eb32000ef3479342bcef67469fc7ff) - Mike Shearer
+
+* **hitl**: warn on cleartext capture at the standalone CLI boot seam [53f47bd](https://github.com/mezmo/aura/commit/53f47bd528493274cc5871ce035a89d178175338) - Mike Shearer
+
+
+
+### Code Refactoring
+
+* **cli**: tidy the init and discovery paths after review [7ca4273](https://github.com/mezmo/aura/commit/7ca4273c0eae29009afdb0bb5f064948c4db6538) - Eric Lake
+
+* **hitl**: share the webhook round-trip choreography [70f11a6](https://github.com/mezmo/aura/commit/70f11a605865ec99bdc3c0b58d41a780c3817b81) - Mike Shearer
+
+
+
+### Documentation
+
+* **cli**: document agent-config discovery and the init location prompt [0f8c0d4](https://github.com/mezmo/aura/commit/0f8c0d42929b2ed7ec7d4355ca6ce09688b0287e) - Eric Lake
+
+* **cli**: state which .env files load and in what order [847d43e](https://github.com/mezmo/aura/commit/847d43e73f3bb8ce877ac0f5593f3d80c5d5886e) - Eric Lake
+
+* **hitl**: defer the adr outcome detail to the design doc [865d8e8](https://github.com/mezmo/aura/commit/865d8e8febeede668ddcf0000f75f3d6dadfdeda) - Mike Shearer
+
+
+
+### Features
+
+* **cli**: discover the agent config outside the working directory [87c4a4a](https://github.com/mezmo/aura/commit/87c4a4a8e9248d59126782dcd19d868a89ee88a2) - Eric Lake
+
+* **cli**: offer a global install target in aura init [43f86ef](https://github.com/mezmo/aura/commit/43f86ef5066f7c63794a5aad7503ada472df4e07) - Eric Lake
+
+* **cli**: render approval-requested events in the REPL [b0572b4](https://github.com/mezmo/aura/commit/b0572b48f868ce8cedf74e2732f9e32c84f9299b) - Mike Shearer [#615](https://github.com/mezmo/aura/issues/615)
+
+* **examples**: add feature-focused and multi-agent example configs [2815f09](https://github.com/mezmo/aura/commit/2815f0907a455a1d654c1529a94ace977063f89c) - Mike Shearer
+
+* **hitl**: apply approver header overrides to the gated mcp call [3a99c97](https://github.com/mezmo/aura/commit/3a99c97c183fd5ebd7227be77178288937f7ae97) - Mike Shearer
+
+* **hitl**: capture approver headers on approved webhook decisions [da202df](https://github.com/mezmo/aura/commit/da202dfc807d4eafa767e22dbf87c3ec805919cd) - Mike Shearer
+
+* **hitl**: header forwarding audit span, integration suite, docs [74b135c](https://github.com/mezmo/aura/commit/74b135c7cda5aa3c616e325ef40b4715b523b3ae) - Mike Shearer
+
+
+
+### Style
+
+* **hitl**: clear vale errors in the compressed adr section [a15ea47](https://github.com/mezmo/aura/commit/a15ea476df4ec8248aa65ddffcca5b4765b3d863) - Mike Shearer
+
+* **hitl**: move behavior narration off data comments [6bed69a](https://github.com/mezmo/aura/commit/6bed69a2df9caa37eef7d6ae345c50328c81e361) - Mike Shearer
+
+* **hitl**: trim comment and doc prose to repo convention [3634110](https://github.com/mezmo/aura/commit/36341108dec73e6b195b2a92b009f367d40a983a) - Mike Shearer
+
+* **hitl**: trim wave comment prose to repo convention [a900267](https://github.com/mezmo/aura/commit/a900267a87b0677779aa916e5cb286fc6c4993fc) - Mike Shearer
+
+
+
+### Tests
+
+* **hitl**: drop adaptor tests subsumed by the transport-tagging suite [2cb9e63](https://github.com/mezmo/aura/commit/2cb9e63c97a6d27c71a990e3a6376752406ef0f6) - Mike Shearer
+
+* **hitl**: drop gate test restating per-branch mapping coverage [bbe4adb](https://github.com/mezmo/aura/commit/bbe4adbdf0155863c6189dcb50c3415bb983a414) - Mike Shearer
+
+* **hitl**: drop integration cases unit-covered at the decision layer [6d32a39](https://github.com/mezmo/aura/commit/6d32a397315ea1e140adb5dcf9db05dcd26a2073) - Mike Shearer
+
+* **hitl**: drop transport tests subsumed by their neighbours [1e73982](https://github.com/mezmo/aura/commit/1e73982e2feaee622a326489013ff274878d1435) - Mike Shearer
+
+* **hitl**: extract shared span-capture harness and capture helper [927b76d](https://github.com/mezmo/aura/commit/927b76d7381ccd304a7299eb47ec5ad6f8cbfe25) - Mike Shearer
+
+* **hitl**: merge the SSE override tests into one gated pass [78aea1f](https://github.com/mezmo/aura/commit/78aea1fc233a5c26848aab583f34430cc272b37d) - Mike Shearer
+
+* **hitl**: prove route-wide approval discards identity headers [719d6ef](https://github.com/mezmo/aura/commit/719d6efb0eaa6ffd14afaeec9fd51b1743474102) - Mike Shearer
+
+* **hitl**: share client-server setup and fold repeated assertions [6db75bf](https://github.com/mezmo/aura/commit/6db75bf4e57f03087d4a924e63f5e6fd178e48bf) - Mike Shearer
+
+* **hitl**: table-drive the webhook gate's response and warning matrices [718b2ad](https://github.com/mezmo/aura/commit/718b2adfb8e6c2e17f8dbf0852de39b2e4b317e5) - Mike Shearer
+
+* **hitl**: trim forwarding suite prose and fold its extraction [97e8659](https://github.com/mezmo/aura/commit/97e8659425813015f4d40b2897f7c0fe2d96e7c6) - Mike Shearer
+
 ## [0.2.10](https://github.com/mezmo/aura/compare/v0.2.9...v0.2.10) (2026-08-27)
 
 
