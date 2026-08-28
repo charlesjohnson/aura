@@ -1,5 +1,22 @@
 ## Changelog
 
+## [0.2.12](https://github.com/mezmo/aura/compare/v0.2.11...v0.2.12) (2026-08-28)
+
+
+### Bug Fixes
+
+* **streaming**: classify mcp-returned tool errors as failures [dcd2836](https://github.com/mezmo/aura/commit/dcd2836b7058049d87e1f638a9a2e9b184b93272) - Mike Shearer
+
+
+
+### Features
+
+* **cli**: add governance sync subcommand [d0d4476](https://github.com/mezmo/aura/commit/d0d447621cb01faa61e658a723bee46f0793390c) - Dan Hable [#599](https://github.com/mezmo/aura/issues/599)
+
+* **governance**: add core config and catalog envelope types [382af47](https://github.com/mezmo/aura/commit/382af473b0ca0e40287809de8d1b4f29e6865152) - Dan Hable [#599](https://github.com/mezmo/aura/issues/599)
+
+* **repl**: add /governance sync command [1dcc233](https://github.com/mezmo/aura/commit/1dcc2336d3d061e3e7fbca4ef40bfa086820e614) - Dan Hable [#599](https://github.com/mezmo/aura/issues/599)
+
 ## [0.2.11](https://github.com/mezmo/aura/compare/v0.2.10...v0.2.11) (2026-08-27)
 
 
